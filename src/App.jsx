@@ -1,4 +1,3 @@
-import { Feed } from '@mui/icons-material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -6,6 +5,7 @@ import ChannelDetail from './components/ChannelDetail';
 import Navbar from './components/Navbar';
 import SearchFeed from './components/SearchFeed';
 import VideoDetails from './components/VideoDetails';
+import Feed from './components/Feed';
 
 const App = () => (
   <BrowserRouter>
