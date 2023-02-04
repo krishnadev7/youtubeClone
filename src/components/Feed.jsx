@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
 import React from 'react';
+import Sidebar from './Sidebar';
 
 const Feed = () => {
   const year = new Date(Date.now()).getFullYear();
@@ -13,7 +14,7 @@ const Feed = () => {
           px: { sx: 0, md: 2 },
         }}
       >
-        Sidebar
+        <Sidebar/>
         <Typography
           className='copyright'
           variant='body2'

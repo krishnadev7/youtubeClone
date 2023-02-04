@@ -1,6 +1,7 @@
 import { Stack } from '@mui/system';
 import React from 'react';
 import { categories } from '../utils/constants';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Sidebar = () => (
   <Stack
@@ -11,11 +12,15 @@ const Sidebar = () => (
       flexDirection: { md: 'column' },
     }}
   >
-    {categories.map((category) => (
-        <button>
-            <span>{category.icon}</span>
-            <span>{category.name}</span>
-        </button>
+    {/* <button>
+      <span>New</span>
+      <span>{<HomeIcon/>}</span>
+    </button> */}
+    {categories.map(category => (
+      <button>
+        <span>{category.icon}</span>
+        <span>{category.name}</span>
+      </button>
     ))}
   </Stack>
 );
