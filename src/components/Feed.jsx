@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
 import React from 'react';
 import Sidebar from './Sidebar';
+import Videos from './Videos';
 
 const Feed = () => {
   const year = new Date(Date.now()).getFullYear();
@@ -14,7 +15,7 @@ const Feed = () => {
           px: { sx: 0, md: 2 },
         }}
       >
-        <Sidebar/>
+        <Sidebar />
         <Typography
           className='copyright'
           variant='body2'
@@ -23,7 +24,17 @@ const Feed = () => {
           Copyright {year} @Krisnadev7 made with ❤️
         </Typography>
       </Box>
-      <Box></Box>
+      <Box p={2} sx={{ overflowY: 'auto', height: '90vh', flex: 2 }}>
+        <Typography
+          fontWeight={'bold'}
+          variant='h4'
+          mb={2}
+          sx={{ color: 'white' }}
+        >
+          New <span style={{ color: '#F31503' }}>Videos</span>
+        </Typography>
+        <Videos videos={[]} />
+      </Box>
     </Stack>
   );
 };

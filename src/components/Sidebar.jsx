@@ -3,6 +3,8 @@ import React from 'react';
 import { categories } from '../utils/constants';
 import HomeIcon from '@mui/icons-material/Home';
 
+const SelectedCategory = 'New';
+
 const Sidebar = () => (
   <Stack
     direction='row'
@@ -12,14 +14,26 @@ const Sidebar = () => (
       flexDirection: { md: 'column' },
     }}
   >
-    {/* <button>
-      <span>New</span>
-      <span>{<HomeIcon/>}</span>
-    </button> */}
     {categories.map(category => (
-      <button>
-        <span>{category.icon}</span>
-        <span>{category.name}</span>
+      <button
+        key={category.name}
+        className='category-btn'
+        style={{
+          background: category.name === SelectedCategory && '#FC1503',
+          color: 'white',
+        }}
+      >
+        <span
+          style={{
+            color: category.name === SelectedCategory ? 'white' : 'red',
+            marginRight: '15px',
+          }}
+        >
+          {category.icon}
+        </span>
+        <span style={{ opacity: category.name === SelectedCategory ? '1' : '0.8' }}>
+          {category.name}
+        </span>
       </button>
     ))}
   </Stack>
