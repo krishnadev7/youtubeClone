@@ -1,10 +1,18 @@
 import { Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchFromApi } from '../utils/fetchFrom';
 import Sidebar from './Sidebar';
 import Videos from './Videos';
 
 const Feed = () => {
+  const [selectedCategory, setSelectedCategory] = useState('New');
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    fetchFromApi(`search?part=snippet&q=${selectedCategory}`).then(data =>
+      setVideos(data.list)
+    );
+  }, [selectedCategory]);
   const year = new Date(Date.now()).getFullYear();
   return (
     <Stack sx={{ flexDirection: { sx: 'column', md: 'row' } }}>
@@ -15,7 +23,10 @@ const Feed = () => {
           px: { sx: 0, md: 2 },
         }}
       >
-        <Sidebar />
+        <Sidebar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <Typography
           className='copyright'
           variant='body2'
@@ -31,9 +42,9 @@ const Feed = () => {
           mb={2}
           sx={{ color: 'white' }}
         >
-          New <span style={{ color: '#F31503' }}>Videos</span>
+          {selectedCategory} <span style={{ color: '#F31503' }}>Videos</span>
         </Typography>
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
