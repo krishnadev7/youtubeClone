@@ -10,10 +10,11 @@ const Feed = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     fetchFromApi(`search?part=snippet&q=${selectedCategory}`).then(data =>
-      setVideos(data.list)
+      setVideos(data.items)
     );
   }, [selectedCategory]);
   const year = new Date(Date.now()).getFullYear();
+  // const year = '2024'
   return (
     <Stack sx={{ flexDirection: { sx: 'column', md: 'row' } }}>
       <Box
@@ -32,7 +33,8 @@ const Feed = () => {
           variant='body2'
           sx={{ mt: 1.5, color: '#fff' }}
         >
-          Copyright {year} @Krisnadev7 made with ❤️
+          Copyright {year != '2023' ? '2023 -' : null}{" "}{year} @Krisnadev7 made
+          with ❤️
         </Typography>
       </Box>
       <Box p={2} sx={{ overflowY: 'auto', height: '90vh', flex: 2 }}>
