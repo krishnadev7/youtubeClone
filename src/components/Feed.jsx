@@ -33,8 +33,7 @@ const Feed = () => {
           variant='body2'
           sx={{ mt: 1.5, color: '#fff' }}
         >
-          Copyright {year != '2023' ? '2023 -' : null}{" "}{year} @Krisnadev7 made
-          with ❤️
+          © {year != '2023' ? '2023 -' : null} {year} Krisnadev7 made with ❤️
         </Typography>
       </Box>
       <Box p={2} sx={{ overflowY: 'auto', height: '90vh', flex: 2 }}>
